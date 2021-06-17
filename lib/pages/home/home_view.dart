@@ -17,17 +17,9 @@ class HomePage extends GetView<HomeController> {
         leadingType: AppBarBackType.None,
       ),
       body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Obx(() => Center(child: Text(controller.count.toString()))),
-            TextButton(onPressed: () => controller.increment(), child: Text('count++')),
-            GetBuilder<HomeController>(builder: (_) {
-              return Text(controller.userName);
-            }),
-            TextButton(onPressed: () => controller.changeUserName(), child: Text('changeName')),
-          ],
-        ),
+        height: 100,
+        width: 100,
+        color: Colors.green,
       ),
     );
   }

@@ -1,6 +1,7 @@
 part of 'app_pages.dart';
 
 abstract class AppRoutes {
+  static const Tab = '/tab';
   static const Index = '/index';
   static const Home = '/home';
   static const Login = '/login';

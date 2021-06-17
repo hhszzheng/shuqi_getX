@@ -71,7 +71,7 @@ class Request {
   }
 
   /// 读取token
-  Map<String, dynamic> getAuthorizationHeader() {
+  Map<String, dynamic>? getAuthorizationHeader() {
     var headers;
     String? token = Global.profile?.token;
     if (token != null) {
@@ -86,9 +86,10 @@ class Request {
   Future get(String path, {dynamic params, Options? options}) async {
     Options requestOptions = options ?? Options();
 
-    Map<String, dynamic> _authorization = getAuthorizationHeader();
-    if (_authorization.isNotEmpty) {
-      requestOptions = requestOptions.copyWith(headers: _authorization);
+    Map<String, dynamic>? authorization = getAuthorizationHeader();
+    if (authorization != null) {
+      // requestOptions.headers!.addAll(authorization);
+      requestOptions = requestOptions.copyWith(headers: authorization);
     }
     var response = await dio.get(path, queryParameters: params, options: requestOptions, cancelToken: cancelToken);
     return response.data;
@@ -97,9 +98,10 @@ class Request {
   /// restful post 操作
   Future post(String path, {dynamic params, Options? options}) async {
     Options requestOptions = options ?? Options();
-    Map<String, dynamic> _authorization = getAuthorizationHeader();
-    if (_authorization.isNotEmpty) {
-      requestOptions = requestOptions.copyWith(headers: _authorization);
+    Map<String, dynamic>? authorization = getAuthorizationHeader();
+    if (authorization != null) {
+      // requestOptions.headers!.addAll(authorization);
+      requestOptions = requestOptions.copyWith(headers: authorization);
     }
     var response = await dio.post(path, data: params, options: requestOptions, cancelToken: cancelToken);
     return response.data;
@@ -108,9 +110,10 @@ class Request {
   /// restful put 操作
   Future put(String path, {dynamic params, Options? options}) async {
     Options requestOptions = options ?? Options();
-    Map<String, dynamic> _authorization = getAuthorizationHeader();
-    if (_authorization.isNotEmpty) {
-      requestOptions = requestOptions.copyWith(headers: _authorization);
+    Map<String, dynamic>? authorization = getAuthorizationHeader();
+    if (authorization != null) {
+      // requestOptions.headers!.addAll(authorization);
+      requestOptions = requestOptions.copyWith(headers: authorization);
     }
     var response = await dio.put(path, data: params, options: requestOptions, cancelToken: cancelToken);
     return response.data;
@@ -120,9 +123,10 @@ class Request {
   Future patch(String path, {dynamic params, Options? options}) async {
     Options requestOptions = options ?? Options();
 
-    Map<String, dynamic> _authorization = getAuthorizationHeader();
-    if (_authorization.isNotEmpty) {
-      requestOptions = requestOptions.copyWith(headers: _authorization);
+    Map<String, dynamic>? authorization = getAuthorizationHeader();
+    if (authorization != null) {
+      // requestOptions.headers!.addAll(authorization);
+      requestOptions = requestOptions.copyWith(headers: authorization);
     }
 
     var response = await dio.patch(path, data: params, options: requestOptions, cancelToken: cancelToken);
@@ -134,9 +138,10 @@ class Request {
   Future delete(String path, {dynamic params, Options? options}) async {
     Options requestOptions = options ?? Options();
 
-    Map<String, dynamic> _authorization = getAuthorizationHeader();
-    if (_authorization.isNotEmpty) {
-      requestOptions = requestOptions.copyWith(headers: _authorization);
+    Map<String, dynamic>? authorization = getAuthorizationHeader();
+    if (authorization != null) {
+      // requestOptions.headers!.addAll(authorization);
+      requestOptions = requestOptions.copyWith(headers: authorization);
     }
     var response = await dio.delete(path, data: params, options: requestOptions, cancelToken: cancelToken);
     return response.data;
@@ -146,9 +151,10 @@ class Request {
   Future postForm(String path, {dynamic params, Options? options}) async {
     Options requestOptions = options ?? Options();
 
-    Map<String, dynamic> _authorization = getAuthorizationHeader();
-    if (_authorization.isNotEmpty) {
-      requestOptions = requestOptions.copyWith(headers: _authorization);
+    Map<String, dynamic>? authorization = getAuthorizationHeader();
+    if (authorization != null) {
+      // requestOptions.headers!.addAll(authorization);
+      requestOptions = requestOptions.copyWith(headers: authorization);
     }
     var response =
         await dio.post(path, data: FormData.fromMap(params), options: requestOptions, cancelToken: cancelToken);

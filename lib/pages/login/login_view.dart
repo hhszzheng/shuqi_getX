@@ -10,7 +10,7 @@ class LoginPage extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        onTap: () => Get.offAndToNamed(AppRoutes.Home),
+        onTap: () => Get.offAndToNamed(AppRoutes.Tab),
         child: Container(
           child: Center(
             child: Text('登录页'),

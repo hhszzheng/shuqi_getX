@@ -1,7 +1,7 @@
 import 'package:flutter_getx_template/env.dart';
 
 // 开发环境
-const SERVER_HOST_DEV = 'http://192.168.3.21:30366';
+const SERVER_HOST_DEV = 'http://rap2api.taobao.org/app/mock/285400/';
 
 // 生产环境
 // 生产环境地址禁止随意修改！！！
